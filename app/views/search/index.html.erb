@@ -1,0 +1,27 @@
+<section class = "station">
+  <% facade.each do |station| %>
+    <h3 class="name">Name: <%= station.name %></h3>
+    <ul>
+      <li class = "address">Address: <%= station.address%></li>
+      <li class = "fuel_type">Fuel Type: <%= station.fuel_type %></li>
+      <li class = "access_times">Access Times: <%= station.access_times %></li>
+    </ul>
+  <% end %>
+</section>
+
+<section class = "directions">
+  <% directions_facade.each do |directions| %>
+  <h3>Directions</h3>
+    <ul>
+      <li class = "distance">Distance: <%= directions.distance%></li>
+      <li class = "travel_time">Travel Time: <%= directions.travel_time %></li>
+    </ul>
+
+    <section class = "html_directions">
+
+      <%= directions.html_directions[0].html_safe %>
+      <br>
+      <%= directions.html_directions[1].html_safe %>
+    </section>
+  <% end %>
+</section>
