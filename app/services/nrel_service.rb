@@ -4,7 +4,7 @@ class NrelService
   end
 
   def station
-    response = Faraday.get("https://developer.nrel.gov/api/alt-fuel-stations/v1.json") do |req|
+    response = Faraday.get("https://developer.nrel.gov/api/alt-fuel-stations/v1/nearest.json") do |req|
       req.params["api_key"] = ENV['NREL_API_KEY']
       req.params["location"] = @location
       req.params["limit"] = 1

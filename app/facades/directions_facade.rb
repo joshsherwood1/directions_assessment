@@ -8,7 +8,6 @@ class DirectionsFacade
   def get_directions
     get_directions_to_fuel_station(@origin, @destination)[:routes].first[:legs].map do |directions_hash|
       Directions.new(directions_hash)
-      binding.pry
     end
   end
 

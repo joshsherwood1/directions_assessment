@@ -1,5 +1,5 @@
 class Directions
-attr_reader :distance, :travel_time, :html_directions, :access_times
+attr_reader :distance, :travel_time, :html_directions
 
   def initialize(attributes = {})
     @distance = attributes[:distance][:text]

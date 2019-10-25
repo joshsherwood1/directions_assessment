@@ -10,12 +10,18 @@
 </section>
 
 <section class = "directions">
-  <% directions_facade.each do |station| %>
-    <h3 class="name">Name: <%= station.name %></h3>
+  <% directions_facade.each do |directions| %>
+  <h3>Directions</h3>
     <ul>
-      <li class = "address">Address: <%= station.address%></li>
-      <li class = "fuel_type">Fuel Type: <%= station.fuel_type %></li>
-      <li class = "access_times">Access Times: <%= station.access_times %></li>
+      <li class = "distance">Distance: <%= directions.distance%></li>
+      <li class = "travel_time">Travel Time: <%= directions.travel_time %></li>
     </ul>
+
+    <section class = "html_directions">
+
+      <%= directions.html_directions %>
+    </section>
   <% end %>
 </section>
+
+Head <b>southeast</b> on <b>17th St</b> toward <b>Larimer St</b>", "Turn <b>left</b> onto <b>Lawrence St</b><div style=\"font-size:0.9em\">Destination will be on the left</div>
