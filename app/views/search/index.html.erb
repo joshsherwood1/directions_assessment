@@ -8,3 +8,14 @@
     </ul>
   <% end %>
 </section>
+
+<section class = "directions">
+  <% directions_facade.each do |station| %>
+    <h3 class="name">Name: <%= station.name %></h3>
+    <ul>
+      <li class = "address">Address: <%= station.address%></li>
+      <li class = "fuel_type">Fuel Type: <%= station.fuel_type %></li>
+      <li class = "access_times">Access Times: <%= station.access_times %></li>
+    </ul>
+  <% end %>
+</section>
