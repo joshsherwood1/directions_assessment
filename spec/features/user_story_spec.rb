@@ -11,8 +11,13 @@ describe "A user" do
       expect(page).to have_css(".name")
       expect(page).to have_css(".address")
       expect(page).to have_css(".fuel_type")
-      expect(page).to have_css(".distance")
       expect(page).to have_css(".access_times")
+    end
+
+    within(first('.directions')) do
+      expect(page).to have_css(".distance")
+      expect(page).to have_css(".travel_time")
+      expect(page).to have_css(".html_directions")
     end
     # expect(page).to have_content("Nearest Fuel Station")
     # expect(page).to have_content("Search For The Nearest Electric Charging Station")
@@ -36,7 +41,6 @@ end
 # - Name
 # - Address
 # - Fuel Type
-# - Distance
 # - Access Times
 #
 # I should also see:

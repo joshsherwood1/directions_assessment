@@ -15,11 +15,12 @@ class NrelService
   #   parse_json(response)
   # end
 
-  def get_member_data
-    response = Faraday.get("https://www.potterapi.com/v1/characters") do |req|
-      req.params["key"] = ENV['POTTER_API_KEY']
-      req.params["house"] = @house
-      req.params["orderOfThePhoenix"] = true
+  def station
+    response = Faraday.get("https://developer.nrel.gov/api/alt-fuel-stations/v1.json") do |req|
+      req.params["api_key"] = ENV['NREL_API_KEY']
+      req.params["location"] = @location
+      req.params["limit"] = 1
+      req.params["fuel_type"] = "ELEC"
     end
     parse_json(response)
   end
@@ -28,10 +29,4 @@ class NrelService
   def parse_json(response)
     JSON.parse(response.body, symbolize_names: true)
   end
-
-  def default_params
-    {
-      key: ENV['POTTER_API_KEY'],
-      orderOfThePhoenix: true
-    }
-  end
+end

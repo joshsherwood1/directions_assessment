@@ -4,14 +4,14 @@ class SearchFacade
     @location = location
   end
 
-  def members
-    get_fuel_station_location(@location).map do |station_hash|
+  def get_station
+    get_fuel_station_location(@location)[:fuel_stations].map do |station_hash|
       Station.new(station_hash)
     end
   end
 
-  def get_fuel_station_location(@location)
-    NrelService.new(@location).get_location
+  def get_fuel_station_location(location)
+    NrelService.new(location).station
   end
 
 end
